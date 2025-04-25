@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    environment {
+environment {
         // Append to PATH correctly on Windows
         PATH+EXTRA = "C:\\Program Files\\Apache\\Maven\\bin;C:\\Program Files\\Java\\jdk-17\\bin"
     }
