@@ -27,15 +27,15 @@ jobs:
 
       - name: Check if WAR file exists
         run: |
-          echo "Looking for WAR in Amazon-Core/target/"
-          ls -l Amazon-Core/target
-          test -f Amazon-Core/target/*.war || (echo "WAR file not found!" && exit 1)
+          echo "Looking for WAR in Amazon-Web/target/"
+          ls -l Amazon-Web/target
+          test -f Amazon-Web/target/*.war || (echo "WAR file not found!" && exit 1)
 
       - name: Upload WAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: Amazon-Core/target/*.war
+          path: Amazon-Web/target/*.war
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'amzon'  # Your Azure Web App name
+          app-name: 'amzon'  # Replace with your Azure Web App name
           slot-name: 'Production'
           package: '*.war'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
