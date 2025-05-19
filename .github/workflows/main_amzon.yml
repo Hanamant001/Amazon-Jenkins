@@ -3,7 +3,7 @@ name: Build and deploy WAR app to Azure Web App - amazon-gn
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
